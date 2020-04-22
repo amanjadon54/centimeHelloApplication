@@ -1,6 +1,6 @@
 package com.centime.hello.configuration;
 
-import com.centime.hello.interceptor.AuthenticationRequestInterceptor;
+import com.centime.util.interceptor.AuthenticationRequestInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

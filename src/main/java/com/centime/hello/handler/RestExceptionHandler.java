@@ -18,8 +18,8 @@ public class RestExceptionHandler {
     @ExceptionHandler(CustomRuntimeException.class)
     public ResponseEntity<ApiError> handleRestException(
             CustomRuntimeException e, HttpServletRequest request) {
-        ApiError apiError = new ApiError(HttpStatus.valueOf(e.getStatus()),e.getMessage(),e.getDeveloperMsg());
+        ApiError apiError = new ApiError(HttpStatus.valueOf(e.getStatus()), e.getMessage(), e.getDeveloperMsg());
 
-        return new ResponseEntity(apiError, apiError.getHttpStatus());
+        return new ResponseEntity(apiError, HttpStatus.valueOf(e.getStatus()));
     }
 }

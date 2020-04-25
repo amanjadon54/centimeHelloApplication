@@ -22,4 +22,12 @@ public class RestExceptionHandler {
 
         return new ResponseEntity(apiError, HttpStatus.valueOf(e.getStatus()));
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ApiError> handleAllException(
+            Exception e, HttpServletRequest request) {
+        ApiError apiError = new ApiError(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e.getLocalizedMessage());
+
+        return new ResponseEntity(apiError, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }
